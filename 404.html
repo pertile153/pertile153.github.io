@@ -5,18 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 Not Found</title>
     <script>
-        // Obtem o caminho completo após o "/projetos/minecraftStatus/"
-        const path = window.location.pathname;
-        const basePath = '/projetos/minecraftStatus/';
-        const projectPath = path.replace(basePath, '');
-
-        // Redireciona para o index.html no diretório correto
-        if (projectPath) {
-            window.location.replace(basePath + 'index.html?' + projectPath);
-        } else {
-            // Se por algum motivo não conseguir extrair o caminho corretamente, redireciona para o index.html da raiz
-            window.location.replace(basePath + 'index.html');
+        // Extrai o caminho atual
+        const path = window.location.pathname.split('/');
+        // Define o caminho base de acordo com o subdiretório
+        let basePath = '/';
+        if (path.length > 1) {
+            basePath = '/' + path[1] + '/';
         }
+        // Redireciona para o 404.html específico do subdiretório
+        window.location.replace(basePath + '404.html');
     </script>
 </head>
 <body>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
+    <script>
+        // Obtem o caminho completo após o "/projetos/minecraftStatus/"
+        const path = window.location.pathname;
+        const basePath = '/projetos/minecraftStatus/';
+        const projectPath = path.replace(basePath, '');
+
+        // Redireciona para o index.html no diretório correto
+        if (projectPath) {
+            window.location.replace(basePath + '?' + projectPath);
+        } else {
+            // Se por algum motivo não conseguir extrair o caminho corretamente, redireciona para o index.html da raiz
+            window.location.replace(basePath + 'index.html');
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
